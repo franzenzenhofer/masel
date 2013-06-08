@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MASEL - server less secure messaging</title>
+    <style>
+    body {
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      padding: 0px;
+      margin:0px;
+      width: 100%;
+      overflow:hidden;
+      height:100%;
+
+    }
+    button {font-family: "Comic Sans MS", cursive, sans-serif;}
+    .action {font-family: Helvetica, sans-serif }
+    #console {
+      margin:2px;
+      min-width: 200px;
+      max-width: 640px;
+    }
+    #input {width:95%; height:20%; }
+    #output {width:95%; height:20%; }
+    #password{width:35%;}
+    #messageurlspan{width:95%}
+    #messageurl{width:90%;}
+    #copy{display:none;}
+    </style>
+  </head>
+  <body>
+    <center>
+      <h1><a href=".">MASEL ✿</a></h1>
+      <h2>Server Less Secure Encrypted Message Sharing</h2>
+      <div id="console">
+        <div>
+          <textarea rows="5" placeholder="Input" id="input" autocomplete="off"></textarea>
+        </div>
+        <div>
+          <input type="password" width="45%" placeholder="Password" id="password" autocomplete="off">
+        </div>
+        <div>
+          <button id="encrypt">Encrypt</button> <button id="up" class="action">⇧</button> <button id="decrypt">Decrypt</button>
+        </div>
+        <div>
+          <textarea width="90%" rows="5" height="12em" placeholder="Output" id="output" readonly autocomplete="off"></textarea>
+        </div>
+        <div>
+          <span id="messageurlspan"><nobr><input type="text" id="messageurl" placeholder="url to copy" readonly autocomplete="off"><button class='action' id="gotourl">Try</button></nobr></span>
+          <div id="copy">
+            <div>Press <strong>⌘ + c</strong> to copy</div>
+            <div>or <button id="tweet">Tweet</button>, or share on <button id="fb">Fb</button>.</div>
+          </div>
+        </div>
+      </div>
+    </center>
+    <script src="sjcl.js"></script>
+    <script src="rawdeflate.js"></script>
+    <script src="rawinflate.js"></script>
+    <script src="base64.js"></script>
+    <script src="masel.js"></script>
+  </body>
+</html>
