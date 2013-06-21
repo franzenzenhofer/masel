@@ -1,4 +1,8 @@
-$ = (s) -> document.querySelectorAll(s)
+$ = (s) -> 
+  if s.charAt(0) is '#'
+    [document.getElementById(s.substring(1))]
+  else
+   document.querySelectorAll(s)
 console.log(window.document)
 
 report_error = (msg) -> console.log(msg)
@@ -120,7 +124,7 @@ $('#decrypt')[0].addEventListener('click', decrypt)
 $('#output')[0].addEventListener('click', (()->$('#output')[0].select()))
 $('#messageurl')[0].addEventListener('click', (()->$('#messageurl')[0].select()))
 $('#up')[0].addEventListener('click', move_output_to_input)
-$('#gotourl')[0].addEventListener('click', (()->window.document.location = get_messageurl()))
+$('#gotourl')[0].addEventListener('click', (()-> if get_messageurl() then window.document.location = get_messageurl() or '#'))
 $('#tweet')[0].addEventListener('click', tweet)
 $('#fb')[0].addEventListener('click', fb)
 #this must always be the last statement

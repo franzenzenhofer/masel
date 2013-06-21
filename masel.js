@@ -3,7 +3,11 @@
   var $, decrypt, encrypt, fb, fetch_data, get_element_value, get_input, get_messageurl, get_output, get_password, if_not_set_error, init_input_with_url, init_url_to_copy, masel_decrypt, masel_encrypt, move_output_to_input, not_set_error, report_error, report_success, set_element_value, set_input, set_messageurl, set_output, tweet, x_crypt;
 
   $ = function(s) {
-    return document.querySelectorAll(s);
+    if (s.charAt(0) === '#') {
+      return [document.getElementById(s.substring(1))];
+    } else {
+      return document.querySelectorAll(s);
+    }
   };
 
   console.log(window.document);
@@ -210,7 +214,9 @@
   $('#up')[0].addEventListener('click', move_output_to_input);
 
   $('#gotourl')[0].addEventListener('click', (function() {
-    return window.document.location = get_messageurl();
+    if (get_messageurl()) {
+      return window.document.location = get_messageurl() || '#';
+    }
   }));
 
   $('#tweet')[0].addEventListener('click', tweet);
