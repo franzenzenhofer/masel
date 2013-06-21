@@ -2,58 +2,46 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>MASEL - server less secure messaging</title>
+    <title>MASEL - serverless secure messaging</title>
     <style>
-    body {
-      font-family: "Comic Sans MS", cursive, sans-serif;
-      padding: 0px;
-      margin:0px;
-      width: 100%;
-      overflow:hidden;
-      height:100%;
-
-    }
-    button {font-family: "Comic Sans MS", cursive, sans-serif;}
-    .action {font-family: Helvetica, sans-serif }
-    #console {
-      margin:2px;
-      min-width: 200px;
-      max-width: 640px;
-    }
-    #input {width:95%; height:20%; }
-    #output {width:95%; height:20%; }
-    #password{width:35%;}
-    #messageurlspan{width:95%}
-    #messageurl{width:90%;}
-    #copy{display:none;}
+body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:300;padding:0;margin:0;width:100%;overflow:hidden;height:100%;color:#444}h1,h2,h3{margin:0;padding:0}h1{font-weight:100;letter-spacing:3px;font-size:48px}h1 img{width:40px;height:40px}h2{font-weight:300;text-align:center;line-height:24px;margin-bottom:20px}header{background:#6eaed0;color:#fff;padding:10px 0;text-align:center;margin-bottom:10px;-moz-box-shadow:0 2px 4px #888;-webkit-box-shadow:0 2px 4px #888;box-shadow:0 2px 4px #888;margin-bottom:20px}header a{color:#fff;text-decoration:none}#console{text-align:center}#input,#output,#password,#messageurl{width:90%;box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.07);-moz-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);border:1px solid #ccc;border-radius:4px;padding:5px;font-size:16px;font-weight:300;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;margin-bottom:15px}.btns{margin-bottom:15px;width:100%}button{margin:0;border-color:#6eaed0;background-color:#6eaed0;border:0;border-radius:2px;color:#fff;font-size:20px;padding:10px;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:100;line-height:36px;letter-spacing:1px}.btns button:first-child,.btns button:last-child{width:36%}.btns button:nth-child(2){width:19%}#messageurlspan{width:90%}#messageurlspan button{width:20%;line-height:10px}#copy button{font-size:14px;line-height:8px;padding:8px}#console{margin:2px;min-width:200px}#messageurl{width:70%}#copy{display:none}
     </style>
   </head>
   <body>
-    <center>
-      <h1><a href=".">MASEL ✿</a></h1>
-      <h2>Server Less Secure Encrypted Message Sharing</h2>
+    <header>
+      <h1>
+        <img alt="" src="data:image/png;base64,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" />
+        <a href=".">MASEL</a></h1>
+    </header>
+      <h2>Serverless Secure Encrypted Message Sharing</h2>
       <div id="console">
         <div>
           <textarea rows="5" placeholder="Input" id="input" autocomplete="off"></textarea>
         </div>
         <div>
-          <input type="password" width="45%" placeholder="Password" id="password" autocomplete="off">
+          <input type="password" placeholder="Password" id="password" autocomplete="off">
         </div>
-        <div>
-          <button id="encrypt">Encrypt</button> <button id="up" class="action">⇧</button> <button id="decrypt">Decrypt</button>
+        <div class="btns">
+          <button id="encrypt">Encrypt</button>
+          <button id="up" class="action">⇧</button>
+          <button id="decrypt">Decrypt</button>
         </div>
         <div>
           <textarea width="90%" rows="5" height="12em" placeholder="Output" id="output" readonly autocomplete="off"></textarea>
         </div>
         <div>
-          <span id="messageurlspan"><nobr><input type="text" id="messageurl" placeholder="url to copy" readonly autocomplete="off"><button class='action' id="gotourl">Try</button></nobr></span>
+          <span id="messageurlspan">
+            <nobr>
+              <input type="text" id="messageurl" placeholder="url to copy" readonly autocomplete="off">
+              <button class='action' id="gotourl">Try</button>
+            </nobr>
+          </span>
           <div id="copy">
-            <div>Press <strong>⌘ + c</strong> to copy</div>
+            <div>Press <strong>cmd + c</strong> to copy</div>
             <div>or <button id="tweet">Tweet</button>, or share on <button id="fb">Fb</button>.</div>
           </div>
         </div>
       </div>
-    </center>
     <script src="sjcl.js"></script>
     <script src="rawdeflate.js"></script>
     <script src="rawinflate.js"></script>
