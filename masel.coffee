@@ -99,7 +99,8 @@ move_output_to_input = () ->
   return true
 
 init_input_with_url = () ->
-  data = decodeURIComponent(window.location?.search?.replace(/^(#|\?)/, ''))
+  data = 
+    decodeURIComponent(window.location?.search?.replace(/^(#|\?)/, ''))
   if data
     set_input(data)
     set_output('')
@@ -130,4 +131,6 @@ $('#fb')[0].addEventListener('click', fb)
 #this must always be the last statement
 
 window.addEventListener('load', init_input_with_url)
+
+
 

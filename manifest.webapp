@@ -1,0 +1,13 @@
+{
+  "name": "Masel",
+  "description": "Serverless Encrypted Message Sharing",
+  "launch_path": "/m/index.html",
+  "icons": {
+    "128": "/assets/masel-logo-128.png"
+  },
+  "developer": {
+    "name": "Franz Enzenhofer",
+    "url": "https://github.com/franzenzenhofer/masel"
+  },
+  "default_locale": "en"
+}
